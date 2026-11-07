@@ -1,1978 +1,1632 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Official academic portfolio of G. Praveen Kumar, Assistant Professor, Computer Science and Engineering.">
-<meta name="theme-color" content="#0b1020">
-<title>G. Praveen Kumar | Academic Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Academic portfolio of G. Praveen Kumar, Assistant Professor in Computer Science and Engineering." />
+  <meta name="theme-color" content="#071521" />
+  <title>G. Praveen Kumar | Academic Portfolio</title>
+  <style>
+    :root {
+      --bg: #071521;
+      --bg-soft: #0d1d2c;
+      --panel: rgba(14, 27, 39, 0.72);
+      --panel-strong: #122437;
+      --card: rgba(15, 30, 42, 0.9);
+      --text: #ecf7ff;
+      --muted: #a5bfd1;
+      --accent: #3fe0c9;
+      --accent-strong: #71b6ff;
+      --accent-warm: #ffb86c;
+      --line: rgba(255, 255, 255, 0.12);
+      --shadow: 0 22px 60px rgba(2, 10, 18, 0.42);
+      --glow: rgba(63, 224, 201, 0.25);
+      --success: #52d08d;
+    }
+
+    body.light {
+      --bg: #edf4fb;
+      --bg-soft: #ffffff;
+      --panel: rgba(255,255,255,0.8);
+      --panel-strong: #f3f8ff;
+      --card: #ffffff;
+      --text: #17263c;
+      --muted: #5d7287;
+      --accent: #0d8e8b;
+      --accent-strong: #4968d8;
+      --accent-warm: #d47b2b;
+      --line: rgba(17, 39, 61, 0.12);
+      --shadow: 0 20px 50px rgba(20, 34, 52, 0.12);
+      --glow: rgba(13, 142, 139, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(63,224,201,0.14), transparent 26%),
+        radial-gradient(circle at right, rgba(113,182,255,0.16), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    ul { margin: 0; padding: 0; list-style: none; }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section { padding: 110px 0; }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 54px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    h1,h2,h3,h4,p { margin: 0; }
+
+    .section-heading h2 {
+      font-size: clamp(2.1rem, 4vw, 3.3rem);
+      line-height: 1.08;
+      letter-spacing: -0.05em;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      padding: 0.9rem 1.4rem;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #a9f5e5);
+      color: #0b1a24;
+      box-shadow: 0 14px 30px rgba(63,224,201,0.25);
+    }
+
+    .btn-secondary {
+      border-color: var(--line);
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 21, 33, 0.7);
+      border-bottom: 1px solid var(--line);
+    }
+
+    body.light .site-header {
+      background: rgba(237, 244, 251, 0.8);
+    }
+
+    .nav-wrap {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      font-weight: 900;
+      font-size: 1.5rem;
+      letter-spacing: -0.08em;
+    }
+
+    .brand span { color: var(--accent); }
 
-<style>
-/* =========================
-   GLOBAL SETTINGS
-========================= */
-:root {
-    --bg: #0b1020;
-    --bg-soft: #111a30;
-    --card: rgba(255,255,255,0.055);
-    --text: #edf2ff;
-    --muted: #a5b1c9;
-    --accent: #70e1d1;
-    --accent2: #8c9eff;
-    --border: rgba(255,255,255,0.11);
-    --nav: rgba(11,16,32,0.88);
-    --shadow: 0 18px 50px rgba(0,0,0,0.22);
-}
-
-body.light {
-    --bg: #f5f7fc;
-    --bg-soft: #ffffff;
-    --card: rgba(255,255,255,0.88);
-    --text: #182238;
-    --muted: #64718a;
-    --accent: #087f79;
-    --accent2: #5267d9;
-    --border: rgba(20,40,80,0.12);
-    --nav: rgba(245,247,252,0.92);
-    --shadow: 0 18px 50px rgba(35,50,90,0.09);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: "Inter", "Segoe UI", Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    overflow-x: hidden;
-    transition: background 0.3s, color 0.3s;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button {
-    font: inherit;
-}
-
-.container {
-    width: min(1160px, 90%);
-    margin: auto;
-}
-
-.section {
-    padding: 100px 0;
-}
-
-.section-heading {
-    text-align: center;
-    margin-bottom: 55px;
-}
-
-.section-heading .tag {
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 12px;
-    font-weight: 800;
-}
-
-.section-heading h2 {
-    font-size: clamp(30px, 4vw, 43px);
-    margin: 12px 0;
-    letter-spacing: -1.5px;
-}
-
-.section-heading p {
-    color: var(--muted);
-    max-width: 650px;
-    margin: auto;
-}
-
-.gradient-text {
-    background: linear-gradient(110deg, var(--accent), var(--accent2));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    padding: 13px 23px;
-    border-radius: 9px;
-    font-weight: 700;
-    font-size: 14px;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-.btn-primary {
-    color: #071321;
-    background: linear-gradient(110deg, var(--accent), #a1e8d9);
-}
-
-.btn-primary:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(112,225,209,0.2);
-}
-
-.btn-outline {
-    border: 1px solid var(--border);
-    color: var(--text);
-}
-
-.btn-outline:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    transform: translateY(-3px);
-}
-
-/* =========================
-   NAVIGATION
-========================= */
-
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: var(--nav);
-    backdrop-filter: blur(18px);
-    border-bottom: 1px solid var(--border);
-}
-
-.navbar {
-    min-height: 76px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 22px;
-    font-weight: 900;
-    letter-spacing: -1px;
-}
-
-.logo span {
-    color: var(--accent);
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 27px;
-}
-
-.nav-links a {
-    font-size: 13px;
-    color: var(--muted);
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: var(--accent);
-}
-
-.nav-actions {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
-
-.theme-btn, .menu-btn {
-    width: 39px;
-    height: 39px;
-    border-radius: 9px;
-    border: 1px solid var(--border);
-    background: var(--card);
-    color: var(--text);
-    cursor: pointer;
-    font-size: 17px;
-}
-
-.menu-btn {
-    display: none;
-}
-
-/* =========================
-   HERO SECTION
-========================= */
-
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 125px 0 70px;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 480px;
-    height: 480px;
-    background: var(--accent);
-    opacity: 0.07;
-    filter: blur(120px);
-    border-radius: 50%;
-    top: 5%;
-    right: -10%;
-}
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 60px;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-}
-
-.availability {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    padding: 8px 13px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 30px;
-    color: var(--muted);
-    font-size: 12px;
-    margin-bottom: 25px;
-}
-
-.availability i {
-    width: 8px;
-    height: 8px;
-    background: #4ce0a0;
-    border-radius: 50%;
-    box-shadow: 0 0 12px #4ce0a0;
-}
-
-.hero h1 {
-    font-size: clamp(42px, 6.5vw, 76px);
-    line-height: 1.08;
-    letter-spacing: -3px;
-    margin-bottom: 18px;
-}
-
-.hero h2 {
-    font-size: clamp(18px, 2.4vw, 25px);
-    color: var(--muted);
-    font-weight: 500;
-    margin-bottom: 22px;
-}
-
-.hero-description {
-    color: var(--muted);
-    max-width: 590px;
-    font-size: 16px;
-    margin-bottom: 30px;
-}
-
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-bottom: 35px;
-}
-
-.social-links {
-    display: flex;
-    gap: 12px;
-}
-
-.social-links a {
-    width: 42px;
-    height: 42px;
-    border: 1px solid var(--border);
-    background: var(--card);
-    border-radius: 10px;
-    display: grid;
-    place-items: center;
-    color: var(--muted);
-    font-weight: 800;
-    font-size: 13px;
-    transition: 0.3s;
-}
-
-.social-links a:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-    transform: translateY(-4px);
-}
-
-.hero-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.profile-frame {
-    width: min(350px, 80vw);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    padding: 12px;
-    border: 1px solid var(--border);
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    box-shadow: 0 25px 80px rgba(112,225,209,0.12);
-    position: relative;
-}
-
-.profile-placeholder {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    overflow: hidden;
-    background: var(--bg-soft);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: var(--accent);
-    text-align: center;
-    font-size: 90px;
-}
-
-.profile-placeholder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.profile-placeholder small {
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 8px;
-}
-
-.floating-card {
-    position: absolute;
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    border-radius: 13px;
-    padding: 13px 17px;
-    box-shadow: var(--shadow);
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.floating-card.one {
-    top: 15%;
-    right: -30px;
-}
-
-.floating-card.two {
-    bottom: 12%;
-    left: -35px;
-}
-
-.floating-card span {
-    color: var(--accent);
-    display: block;
-    font-size: 11px;
-}
-
-/* =========================
-   ABOUT
-========================= */
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: 60px;
-    align-items: start;
-}
-
-.about-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 30px;
-}
-
-.about-card h3 {
-    font-size: 23px;
-    margin-bottom: 18px;
-}
-
-.about-card p {
-    color: var(--muted);
-    margin-bottom: 15px;
-}
-
-.info-list {
-    margin-top: 25px;
-}
-
-.info-item {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    border-bottom: 1px solid var(--border);
-    padding: 13px 0;
-    font-size: 13px;
-}
-
-.info-item span:first-child {
-    color: var(--muted);
-}
-
-.info-item span:last-child {
-    text-align: right;
-    font-weight: 600;
-}
-
-.about-content p {
-    color: var(--muted);
-    margin-bottom: 17px;
-}
-
-.highlight-box {
-    background: linear-gradient(110deg, rgba(112,225,209,.09), rgba(140,158,255,.08));
-    border-left: 3px solid var(--accent);
-    padding: 20px;
-    margin-top: 25px;
-    border-radius: 0 10px 10px 0;
-}
-
-/* =========================
-   RESEARCH INTERESTS
-========================= */
-
-.research-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.research-card {
-    padding: 28px;
-    border-radius: 16px;
-    border: 1px solid var(--border);
-    background: var(--card);
-    transition: 0.35s;
-}
-
-.research-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--accent);
-    box-shadow: var(--shadow);
-}
-
-.card-icon {
-    font-size: 30px;
-    margin-bottom: 17px;
-}
-
-.research-card h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.research-card p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-/* =========================
-   EDUCATION
-========================= */
-
-.timeline {
-    max-width: 820px;
-    margin: auto;
-    position: relative;
-}
-
-.timeline::before {
-    content: "";
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    bottom: 10px;
-    width: 2px;
-    background: var(--border);
-}
-
-.timeline-item {
-    position: relative;
-    padding-left: 45px;
-    margin-bottom: 30px;
-}
-
-.timeline-item::before {
-    content: "";
-    position: absolute;
-    left: 3px;
-    top: 7px;
-    width: 16px;
-    height: 16px;
-    background: var(--accent);
-    border-radius: 50%;
-    box-shadow: 0 0 15px rgba(112,225,209,.4);
-}
-
-.timeline-content {
-    padding: 23px;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    background: var(--card);
-}
-
-.timeline-content .date {
-    font-size: 12px;
-    color: var(--accent);
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.timeline-content h3 {
-    margin: 7px 0;
-    font-size: 19px;
-}
-
-.timeline-content p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-/* =========================
-   TEACHING
-========================= */
-
-.teaching-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-}
-
-.teaching-card {
-    padding: 23px;
-    border: 1px solid var(--border);
-    background: var(--card);
-    border-radius: 13px;
-}
-
-.teaching-card h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.teaching-card p {
-    color: var(--muted);
-    font-size: 13px;
-}
-
-/* =========================
-   PROJECTS
-========================= */
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px;
-}
-
-.project-card {
-    overflow: hidden;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 17px;
-    transition: 0.3s;
-}
-
-.project-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--accent);
-}
-
-.project-top {
-    height: 145px;
-    display: grid;
-    place-items: center;
-    font-size: 52px;
-    background: linear-gradient(135deg, rgba(112,225,209,.13), rgba(140,158,255,.15));
-}
-
-.project-body {
-    padding: 25px;
-}
-
-.project-body h3 {
-    font-size: 19px;
-    margin-bottom: 10px;
-}
-
-.project-body p {
-    font-size: 14px;
-    color: var(--muted);
-    margin-bottom: 17px;
-}
-
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.tags span {
-    padding: 5px 10px;
-    font-size: 11px;
-    border-radius: 20px;
-    color: var(--accent);
-    background: rgba(112,225,209,.09);
-    border: 1px solid rgba(112,225,209,.16);
-}
-
-/* =========================
-   SKILLS
-========================= */
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px;
-}
-
-.skill-group {
-    padding: 25px;
-    border: 1px solid var(--border);
-    background: var(--card);
-    border-radius: 15px;
-}
-
-.skill-group h3 {
-    margin-bottom: 18px;
-    font-size: 17px;
-}
-
-.skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.skill-tags span {
-    padding: 9px 14px;
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    color: var(--muted);
-    border-radius: 8px;
-    font-size: 13px;
-}
-
-/* =========================
-   ACADEMIC ACTIVITIES
-========================= */
-
-.activities-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.activity-card {
-    padding: 25px;
-    border: 1px solid var(--border);
-    border-radius: 15px;
-    background: var(--card);
-}
-
-.activity-card .activity-icon {
-    font-size: 29px;
-    margin-bottom: 14px;
-}
-
-.activity-card h3 {
-    font-size: 17px;
-    margin-bottom: 9px;
-}
-
-.activity-card p {
-    font-size: 13px;
-    color: var(--muted);
-}
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact-wrapper {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 35px;
-}
-
-.contact-info, .contact-form {
-    padding: 30px;
-    border: 1px solid var(--border);
-    background: var(--card);
-    border-radius: 16px;
-}
-
-.contact-info h3, .contact-form h3 {
-    font-size: 22px;
-    margin-bottom: 18px;
-}
-
-.contact-info p {
-    color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 20px;
-}
-
-.contact-detail {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 13px;
-    overflow-wrap: anywhere;
-}
-
-.contact-detail strong {
-    display: block;
-    color: var(--accent);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 14px;
-    margin-bottom: 15px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--bg);
-    color: var(--text);
-    font-family: inherit;
-    outline: none;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: var(--accent);
-}
-
-.contact-form textarea {
-    min-height: 140px;
-    resize: vertical;
-}
-
-.form-note {
-    color: var(--muted);
-    font-size: 11px;
-    margin-top: 10px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    padding: 30px 0;
-    border-top: 1px solid var(--border);
-    text-align: center;
-}
-
-footer p {
-    font-size: 13px;
-    color: var(--muted);
-}
-
-footer span {
-    color: var(--accent);
-}
-
-/* =========================
-   ANIMATIONS
-========================= */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(25px);
-    transition: opacity .7s ease, transform .7s ease;
-}
-
-.reveal.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-#backToTop {
-    position: fixed;
-    right: 22px;
-    bottom: 22px;
-    width: 45px;
-    height: 45px;
-    border: 0;
-    border-radius: 10px;
-    background: var(--accent);
-    color: #071321;
-    font-size: 20px;
-    cursor: pointer;
-    display: none;
-    z-index: 900;
-}
-
-/* =========================
-   RESPONSIVE DESIGN
-========================= */
-
-@media(max-width: 950px) {
     .nav-links {
-        gap: 15px;
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      transition: all 0.25s ease;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after { transform: scaleX(1); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      cursor: pointer;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .icon-btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+
+    .menu-btn { display: none; }
+
+    .hero {
+      position: relative;
+      padding: 88px 0 70px;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.28;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 420px;
+      height: 420px;
+      right: -120px;
+      top: 30px;
+      background: rgba(63,224,201,0.28);
+    }
+
+    .hero::after {
+      width: 340px;
+      height: 340px;
+      left: -120px;
+      bottom: 25px;
+      background: rgba(113,182,255,0.22);
     }
 
     .hero-grid {
-        gap: 30px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.85fr;
+      align-items: center;
+      gap: 52px;
+      position: relative;
+      z-index: 1;
     }
 
-    .research-grid, .teaching-grid, .activities-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media(max-width: 760px) {
-    .menu-btn {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 76px;
-        left: 0;
-        width: 100%;
-        padding: 25px;
-        background: var(--bg-soft);
-        border-bottom: 1px solid var(--border);
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 18px;
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 0.55rem 0.9rem;
+      margin-bottom: 26px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    .nav-links.open {
-        display: flex;
-    }
-
-    .hero-grid, .about-grid, .contact-wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    .hero {
-        padding-top: 130px;
-    }
-
-    .hero-visual {
-        grid-row: 1;
-    }
-
-    .profile-frame {
-        width: 240px;
-    }
-
-    .floating-card.one {
-        right: -10px;
-    }
-
-    .floating-card.two {
-        left: -10px;
+    .hero-badge .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 18px rgba(82,208,141,0.85);
     }
 
     .hero h1 {
-        letter-spacing: -2px;
+      font-size: clamp(2.6rem, 5vw, 5.4rem);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+      margin-bottom: 1rem;
     }
 
-    .projects-grid, .skills-grid {
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      color: var(--muted);
+      margin-bottom: 1.3rem;
+      min-height: 1.75em;
+    }
+
+    .hero-subtitle .typed-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.15em;
+      background: var(--accent);
+      margin-left: 4px;
+      animation: blink 0.9s infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+
+    .hero-copy p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 620px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 2rem;
+    }
+
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      transition: all 0.2s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 22px var(--glow);
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 500px;
+    }
+
+    .portrait-card {
+      position: relative;
+      width: min(380px, 80vw);
+      aspect-ratio: 1;
+      border-radius: 33% 67% 52% 48% / 43% 35% 65% 57%;
+      background: linear-gradient(135deg, rgba(63,224,201,0.26), rgba(113,182,255,0.18));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      transform: rotate(-5deg);
+    }
+
+    .portrait-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 29% 71% 48% 52% / 38% 32% 68% 62%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.08));
+      border: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .portrait-inner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.1));
+    }
+
+    .portrait-fallback {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: clamp(4.5rem, 9vw, 8rem);
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      color: var(--accent);
+      background: linear-gradient(160deg, rgba(7,21,33,0.88), rgba(18,36,55,0.9));
+    }
+
+    .portrait-fallback small {
+      display: block;
+      font-size: 0.18em;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      margin-top: 10px;
+    }
+
+    .floating-tag {
+      position: absolute;
+      background: rgba(15, 30, 42, 0.8);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 16px;
+      padding: 0.8rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text);
+      backdrop-filter: blur(8px);
+    }
+
+    .floating-tag span {
+      display: block;
+      color: var(--accent);
+      font-size: 0.66rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .floating-tag.one { top: 20px; right: -18px; }
+    .floating-tag.two { bottom: 30px; left: -20px; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      padding-top: 22px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat-card {
+      padding: 1.3rem 1rem;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      text-align: center;
+      backdrop-filter: blur(7px);
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      color: var(--accent);
+      letter-spacing: -0.06em;
+      margin-bottom: 4px;
+    }
+
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+    }
+
+    .about-card h3,
+    .main-panel h3,
+    .contact-card h3,
+    .education-card h3,
+    .project-pane h3 {
+      font-size: clamp(1.5rem, 2vw, 2rem);
+      letter-spacing: -0.04em;
+      margin-bottom: 0.8rem;
+    }
+
+    .about-card p,
+    .main-panel p,
+    .contact-card p,
+    .text-muted {
+      color: var(--muted);
+    }
+
+    .profile-list {
+      margin-top: 1.5rem;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .profile-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.92rem;
+    }
+
+    .profile-row span:first-child {
+      color: var(--muted);
+    }
+
+    .profile-row span:last-child {
+      text-align: right;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .main-panel {
+      background: linear-gradient(135deg, rgba(63,224,201,0.04), rgba(113,182,255,0.04));
+    }
+
+    .main-panel > p + p { margin-top: 1rem; }
+
+    .insight-box {
+      margin-top: 1.75rem;
+      border-left: 3px solid var(--accent);
+      background: rgba(63,224,201,0.05);
+      border-radius: 0 16px 16px 0;
+      padding: 1.2rem 1.3rem;
+    }
+
+    .insight-box strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 1.4rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.55rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+      font-size: 0.77rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .research-grid,
+    .teaching-grid,
+    .activities-grid,
+    .project-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .research-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .teaching-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .activities-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .feature-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1.5rem;
+      transition: transform 0.2s ease, border-color 0.25s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -50px -50px auto;
+      width: 130px;
+      height: 130px;
+      background: radial-gradient(circle, rgba(63,224,201,0.15), transparent 65%);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(63,224,201,0.5);
+      box-shadow: 0 18px 35px rgba(8,16,26,0.24);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .feature-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .timeline {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 12px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), rgba(113,182,255,0.25));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 48px;
+      margin-bottom: 22px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 12px;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(63,224,201,0.45);
+    }
+
+    .timeline-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1.5rem 1.4rem;
+    }
+
+    .timeline-date {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 800;
+      margin-bottom: 0.6rem;
+    }
+
+    .timeline-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.55rem;
+      letter-spacing: -0.03em;
+    }
+
+    .timeline-card p {
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .project-toolbar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 0.7rem 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: linear-gradient(135deg, rgba(63,224,201,0.15), rgba(113,182,255,0.12));
+      border-color: rgba(63,224,201,0.6);
+      color: var(--text);
+    }
+
+    .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .project-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(63,224,201,0.55);
+    }
+
+    .project-visual {
+      height: 170px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(63,224,201,0.13), rgba(113,182,255,0.12));
+      font-size: clamp(2.6rem, 4vw, 3.8rem);
+    }
+
+    .project-body {
+      padding: 1.4rem 1.4rem 1.5rem;
+    }
+
+    .project-body h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.7rem;
+      letter-spacing: -0.04em;
+    }
+
+    .project-body p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 0.45rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(63,224,201,0.08);
+      border: 1px solid rgba(63,224,201,0.14);
+      color: var(--accent);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .testimonial-wrap {
+      background: linear-gradient(135deg, rgba(63,224,201,0.06), rgba(113,182,255,0.04));
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 1.8rem;
+    }
+
+    .testimonial {
+      display: none;
+      color: var(--muted);
+      font-size: 1.04rem;
+      line-height: 1.8;
+    }
+
+    .testimonial.active { display: block; }
+
+    .testimonial-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .quote-mark {
+      font-size: 2.2rem;
+      line-height: 1;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot-btn {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .dot-btn.active {
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(63,224,201,0.8);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 24px;
+    }
+
+    .contact-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1.7rem;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 1.2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding-top: 0.8rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(63,224,201,0.08);
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 0.15rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.68rem;
+      color: var(--accent);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .field label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+      padding: 0.9rem 1rem;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: rgba(63,224,201,0.7);
+      box-shadow: 0 0 0 3px rgba(63,224,201,0.12);
+    }
+
+    .field textarea { min-height: 150px; }
+
+    .form-small {
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+    }
+
+    footer {
+      padding: 1.5rem 0 2.5rem;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: 24px;
+      bottom: 22px;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      border: none;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #071521;
+      font-size: 1.3rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 18px 35px rgba(63,224,201,0.25);
+      display: none;
+      z-index: 50;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid {
         grid-template-columns: 1fr;
+      }
+
+      .research-grid,
+      .teaching-grid,
+      .activities-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
-    .section {
-        padding: 75px 0;
-    }
-}
+    @media (max-width: 760px) {
+      .menu-btn { display: inline-flex; }
 
-@media(max-width: 500px) {
-    .research-grid, .teaching-grid, .activities-grid {
+      .nav-links {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        top: 76px;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.3rem 1rem;
+        background: var(--bg-soft);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open { display: flex; }
+
+      .stats,
+      .project-grid,
+      .research-grid,
+      .teaching-grid,
+      .activities-grid,
+      .field-row {
         grid-template-columns: 1fr;
+      }
+
+      .hero { padding-top: 70px; }
+      .hero-visual { min-height: 380px; }
+      .floating-tag.one { right: 6px; }
+      .floating-tag.two { left: 8px; }
     }
 
-    .hero-buttons .btn {
+    @media (max-width: 520px) {
+      .section { padding: 84px 0; }
+      .hero-actions .btn {
         width: 100%;
+      }
+      .profile-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .profile-row span:last-child {
+        text-align: left;
+      }
     }
-
-    .section-heading {
-        margin-bottom: 35px;
-    }
-
-    .about-card, .contact-info, .contact-form {
-        padding: 22px;
-    }
-}
-
-@media(prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-    }
-}
-</style>
+  </style>
 </head>
-
 <body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#home" class="brand">G.<span>PK</span></a>
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#education">Education</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-<header>
-    <div class="container navbar">
-
-        <a href="#home" class="logo">PK<span>.</span></a>
-
-        <nav class="nav-links" id="navLinks">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#research">Research</a>
-            <a href="#education">Education</a>
-            <a href="#teaching">Teaching</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-        <div class="nav-actions">
-            <button class="theme-btn" id="themeToggle"
-                    aria-label="Toggle light and dark theme">☀</button>
-
-            <button class="menu-btn" id="menuToggle"
-                    aria-label="Open navigation menu">☰</button>
-        </div>
-
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☀</button>
+        <button class="icon-btn menu-btn" id="menuToggle" aria-label="Open menu">☰</button>
+      </div>
     </div>
-</header>
+  </header>
 
-
-<!-- =========================
-     HERO
-========================= -->
-
-<section class="hero" id="home">
-    <div class="container hero-grid">
-
-        <div class="hero-content">
-
-            <div class="availability">
-                <i></i> ACADEMIC PROFESSIONAL PORTFOLIO
-            </div>
-
-            <h1>
-                Hi, I'm<br>
-                <span class="gradient-text">G. Praveen Kumar</span>
-            </h1>
-
-            <h2>Assistant Professor | Computer Science and Engineering</h2>
-
-            <p class="hero-description">
-                Passionate educator, researcher and technology enthusiast
-                committed to academic excellence, innovative learning and
-                research-driven development. Exploring the intersection of
-                Artificial Intelligence, Machine Learning and emerging
-                computing technologies.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#about" class="btn btn-primary">
-                    Explore My Portfolio →
-                </a>
-
-                <a href="#contact" class="btn btn-outline">
-                    Contact Me
-                </a>
-            </div>
-
-            <div class="social-links">
-                <!-- Replace # with your actual profile URLs -->
-                <a href="#" title="LinkedIn">in</a>
-                <a href="#" title="Google Scholar">GS</a>
-                <a href="#" title="GitHub">GH</a>
-                <a href="mailto:your-email@example.com" title="Email">@</a>
-            </div>
-
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="hero-badge"><span class="dot"></span>Academic Professional Portfolio</div>
+          <h1>
+            Hi, I'm <span class="gradient-text">G. Praveen Kumar</span>
+          </h1>
+          <div class="hero-subtitle">
+            <span id="typedText"></span><span class="typed-cursor"></span>
+          </div>
+          <p>
+            Passionate educator, researcher, and technology mentor committed to academic excellence,
+            innovative teaching, and applied research that transforms student learning and industry readiness.
+          </p>
+          <div class="hero-actions">
+            <a href="#about" class="btn btn-primary">Explore my portfolio</a>
+            <a href="#contact" class="btn btn-secondary">Contact me</a>
+          </div>
+          <div class="social-links">
+            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
+            <a href="https://scholar.google.com" target="_blank" rel="noreferrer" aria-label="Google Scholar">GS</a>
+            <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub">GH</a>
+            <a href="mailto:your-email@example.com" aria-label="Email">@</a>
+          </div>
         </div>
 
-        <div class="hero-visual">
-
-            <div class="profile-frame">
-
-                <div class="profile-placeholder">
-                    <!-- Replace profile.jpg with your actual photograph -->
-                    <img src="profile.jpg"
-                         alt="G. Praveen Kumar"
-                         onerror="this.style.display='none';
-                         this.parentElement.innerHTML=
-                         '<div>PK</div><small>Add your profile photo as profile.jpg</small>';">
-                </div>
-
-                <div class="floating-card one">
-                    <span>PROFESSION</span>
-                    Assistant Professor
-                </div>
-
-                <div class="floating-card two">
-                    <span>RESEARCH INTEREST</span>
-                    AI & Machine Learning
-                </div>
-
+        <div class="hero-visual reveal">
+          <div class="portrait-card">
+            <div class="portrait-inner">
+              <div class="portrait-fallback">
+                PK
+                <small>Professor</small>
+              </div>
             </div>
+          </div>
 
+          <div class="floating-tag one"><span>Profession</span>Assistant Professor</div>
+          <div class="floating-tag two"><span>Focus</span>AI &amp; ML</div>
         </div>
+      </div>
 
-    </div>
-</section>
+      <div class="container stats reveal" aria-label="Career statistics">
+        <div class="stat-card">
+          <strong data-target="8">0</strong>
+          <span>Years</span>
+        </div>
+        <div class="stat-card">
+          <strong data-target="16">0</strong>
+          <span>Research Areas</span>
+        </div>
+        <div class="stat-card">
+          <strong data-target="120">0</strong>
+          <span>Students mentored</span>
+        </div>
+        <div class="stat-card">
+          <strong data-target="12">0</strong>
+          <span>Tech workshops</span>
+        </div>
+      </div>
+    </section>
 
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<section class="section" id="about">
-    <div class="container">
-
+    <section class="section" id="about">
+      <div class="container">
         <div class="section-heading reveal">
-            <span class="tag">Discover My Profile</span>
-            <h2>About <span class="gradient-text">Me</span></h2>
-            <p>A journey of teaching, learning, research and innovation.</p>
+          <span class="eyebrow">Discover my profile</span>
+          <h2>About <span class="gradient-text">me</span></h2>
+          <p>A journey shaped by teaching, learning, research, and innovation.</p>
         </div>
 
         <div class="about-grid">
-
-            <div class="about-card reveal">
-
-                <h3>Personal Profile</h3>
-
-                <p>
-                    An academic professional with an interest in computer
-                    science, emerging technologies, research and student
-                    development.
-                </p>
-
-                <div class="info-list">
-
-                    <div class="info-item">
-                        <span>Name</span>
-                        <span>G. Praveen Kumar</span>
-                    </div>
-
-                    <div class="info-item">
-                        <span>Designation</span>
-                        <span>Assistant Professor</span>
-                    </div>
-
-                    <div class="info-item">
-                        <span>Department</span>
-                        <span>Computer Science and Engineering</span>
-                    </div>
-
-                    <div class="info-item">
-                        <span>Research Status</span>
-                        <span>Ph.D. Scholar</span>
-                    </div>
-
-                    <div class="info-item">
-                        <span>University</span>
-                        <span>Anna University</span>
-                    </div>
-
-                    <div class="info-item">
-                        <span>Research Registration</span>
-                        <span>January 2024</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="about-content reveal">
-
-                <h3>Educator. Researcher. Innovator.</h3>
-
-                <p>
-                    I am G. Praveen Kumar, working as an Assistant Professor
-                    in the Department of Computer Science and Engineering.
-                    My academic interests focus on delivering effective
-                    teaching, developing practical programming skills and
-                    encouraging students to explore innovative technologies.
-                </p>
-
-                <p>
-                    My teaching interests include programming, software
-                    engineering, web technologies, database systems,
-                    cybersecurity and machine learning. I believe in
-                    combining theoretical concepts with hands-on
-                    implementation and real-world applications.
-                </p>
-
-                <p>
-                    I am pursuing a part-time Ph.D. at Anna University,
-                    registered in January 2024. My research interests
-                    include machine learning applications, power quality
-                    analysis, predictive modelling and solar energy
-                    forecasting.
-                </p>
-
-                <p>
-                    I am also interested in organizing technical workshops,
-                    mentoring students, coordinating academic activities
-                    and supporting industry-oriented learning experiences.
-                </p>
-
-                <div class="highlight-box">
-                    <strong class="gradient-text">My Academic Vision</strong>
-                    <p style="margin:8px 0 0">
-                        To create a learning environment that encourages
-                        curiosity, critical thinking, technical expertise
-                        and research innovation.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-<!-- =========================
-     RESEARCH INTERESTS
-========================= -->
-
-<section class="section" id="research"
-         style="background:var(--bg-soft)">
-
-    <div class="container">
-
-        <div class="section-heading reveal">
-            <span class="tag">Academic Exploration</span>
-            <h2>Research <span class="gradient-text">Interests</span></h2>
+          <aside class="panel about-card reveal">
+            <h3>Personal profile</h3>
             <p>
-                Exploring intelligent solutions through computational
-                modelling and data-driven research.
+              An academic professional with a strong commitment to teaching, mentoring,
+              and research excellence in Computer Science and Engineering.
             </p>
-        </div>
 
-        <div class="research-grid">
-
-            <div class="research-card reveal">
-                <div class="card-icon">🤖</div>
-                <h3>Machine Learning</h3>
-                <p>
-                    Developing predictive models, intelligent classification
-                    systems and data-driven approaches for practical
-                    engineering and computing problems.
-                </p>
+            <div class="profile-list">
+              <div class="profile-row"><span>Name</span><span>G. Praveen Kumar</span></div>
+              <div class="profile-row"><span>Designation</span><span>Assistant Professor</span></div>
+              <div class="profile-row"><span>Department</span><span>CSE</span></div>
+              <div class="profile-row"><span>Research status</span><span>Ph.D. Scholar</span></div>
+              <div class="profile-row"><span>University</span><span>Anna University</span></div>
+              <div class="profile-row"><span>Registration</span><span>January 2024</span></div>
             </div>
+          </aside>
 
-            <div class="research-card reveal">
-                <div class="card-icon">🧠</div>
-                <h3>Artificial Intelligence</h3>
-                <p>
-                    Exploring intelligent systems, automation,
-                    computational intelligence and AI-driven
-                    problem-solving approaches.
-                </p>
-            </div>
-
-            <div class="research-card reveal">
-                <div class="card-icon">⚡</div>
-                <h3>Power Quality Analysis</h3>
-                <p>
-                    Investigating electrical power disturbances such as
-                    voltage sag, swell, harmonics and normal operating
-                    conditions using machine learning techniques.
-                </p>
-            </div>
-
-            <div class="research-card reveal">
-                <div class="card-icon">☀️</div>
-                <h3>Solar Energy Prediction</h3>
-                <p>
-                    Researching photovoltaic module temperature prediction,
-                    solar energy performance and environmental parameter
-                    modelling.
-                </p>
-            </div>
-
-            <div class="research-card reveal">
-                <div class="card-icon">📊</div>
-                <h3>Predictive Analytics</h3>
-                <p>
-                    Applying regression, ensemble learning and statistical
-                    evaluation techniques for accurate prediction
-                    and performance assessment.
-                </p>
-            </div>
-
-            <div class="research-card reveal">
-                <div class="card-icon">🔬</div>
-                <h3>Simulation and Modelling</h3>
-                <p>
-                    Exploring computational modelling, MATLAB/Simulink
-                    simulations and intelligent analysis of engineering
-                    systems.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-<!-- =========================
-     EDUCATION
-========================= -->
-
-<section class="section" id="education">
-
-    <div class="container">
-
-        <div class="section-heading reveal">
-            <span class="tag">Academic Background</span>
-            <h2>Education & <span class="gradient-text">Research</span></h2>
-            <p>Academic journey and research progression.</p>
-        </div>
-
-        <div class="timeline">
-
-            <div class="timeline-item reveal">
-                <div class="timeline-content">
-                    <span class="date">January 2024 – Present</span>
-                    <h3>Ph.D. – Part-Time Research Scholar</h3>
-                    <p><strong>Anna University</strong></p>
-                    <p>
-                        Department of Information and Communication
-                        Engineering.
-                    </p>
-                    <p>
-                        Research areas: Machine Learning applications,
-                        predictive modelling and interdisciplinary
-                        engineering applications.
-                    </p>
-                    <p><strong>Status:</strong> Pursuing</p>
-                </div>
-            </div>
-
-            <div class="timeline-item reveal">
-                <div class="timeline-content">
-                    <span class="date">Professional Experience</span>
-                    <h3>Assistant Professor</h3>
-                    <p>
-                        Department of Computer Science and Engineering.
-                    </p>
-                    <p>
-                        Teaching, student mentoring, technical activities,
-                        academic coordination and research-oriented learning.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Add your UG and PG education details here -->
-
-            <div class="timeline-item reveal">
-                <div class="timeline-content">
-                    <span class="date">Additional Information</span>
-                    <h3>Undergraduate and Postgraduate Education</h3>
-                    <p>
-                        Add your degree, specialization, institution,
-                        university and year of completion here.
-                    </p>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-<!-- =========================
-     TEACHING
-========================= -->
-
-<section class="section" id="teaching"
-         style="background:var(--bg-soft)">
-
-    <div class="container">
-
-        <div class="section-heading reveal">
-            <span class="tag">Knowledge Sharing</span>
-            <h2>Teaching <span class="gradient-text">Portfolio</span></h2>
+          <div class="panel main-panel reveal">
+            <h3>Educator. Researcher. Mentor.</h3>
             <p>
-                Creating practical, interactive and student-centred
-                learning experiences.
+              I am dedicated to delivering effective teaching and creating a learning environment where students
+              can build technical confidence, critical thinking, and practical problem-solving skills.
             </p>
-        </div>
-
-        <div class="teaching-grid">
-
-            <div class="teaching-card reveal">
-                <h3>💻 Programming Languages</h3>
-                <p>
-                    C Programming, Python, C#, programming fundamentals,
-                    functions, control statements and object-oriented
-                    programming.
-                </p>
-            </div>
-
-            <div class="teaching-card reveal">
-                <h3>🌐 Web Development</h3>
-                <p>
-                    HTML, CSS, JavaScript, Node.js, Express.js,
-                    React, Angular and Full Stack Development.
-                </p>
-            </div>
-
-            <div class="teaching-card reveal">
-                <h3>🗄️ Database Management</h3>
-                <p>
-                    Database concepts, SQL, MySQL, MongoDB,
-                    database connectivity and web-based databases.
-                </p>
-            </div>
-
-            <div class="teaching-card reveal">
-                <h3>🛡️ Cybersecurity</h3>
-                <p>
-                    Cybersecurity fundamentals, ethical hacking,
-                    security assessments, vulnerabilities and
-                    security management tools.
-                </p>
-            </div>
-
-            <div class="teaching-card reveal">
-                <h3>🧪 Software Engineering</h3>
-                <p>
-                    Software testing, software quality assurance,
-                    requirements engineering, system design and
-                    software development methodologies.
-                </p>
-            </div>
-
-            <div class="teaching-card reveal">
-                <h3>🤖 Artificial Intelligence</h3>
-                <p>
-                    Machine learning concepts, classification,
-                    regression, model evaluation and practical
-                    AI applications.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-<!-- =========================
-     PROJECTS AND RESEARCH WORK
-========================= -->
-
-<section class="section" id="projects">
-
-    <div class="container">
-
-        <div class="section-heading reveal">
-            <span class="tag">Research & Development</span>
-            <h2>Projects & <span class="gradient-text">Research Work</span></h2>
             <p>
-                Selected research topics and technical implementation
-                areas.
+              My academic interests span programming, web technologies, database systems, software engineering,
+              cybersecurity, and machine learning. I also support students through mentoring, projects,
+              and research-oriented learning experiences.
             </p>
-        </div>
-
-        <div class="projects-grid">
-
-            <div class="project-card reveal">
-                <div class="project-top">☀️</div>
-
-                <div class="project-body">
-                    <h3>PV Module Temperature Prediction</h3>
-
-                    <p>
-                        Research focused on predicting photovoltaic module
-                        temperature using environmental and solar
-                        parameters. Investigating machine learning and
-                        regression algorithms to evaluate prediction
-                        accuracy and model performance.
-                    </p>
-
-                    <div class="tags">
-                        <span>Machine Learning</span>
-                        <span>Solar Energy</span>
-                        <span>Regression</span>
-                        <span>Prediction</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card reveal">
-                <div class="project-top">⚡</div>
-
-                <div class="project-body">
-                    <h3>Power Quality Fault Analysis</h3>
-
-                    <p>
-                        Exploring machine learning approaches for
-                        identification and classification of power
-                        quality disturbances, including voltage sag,
-                        voltage swell and harmonic conditions.
-                    </p>
-
-                    <div class="tags">
-                        <span>Random Forest</span>
-                        <span>RNN</span>
-                        <span>Power Quality</span>
-                        <span>Classification</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card reveal">
-                <div class="project-top">🏠</div>
-
-                <div class="project-body">
-                    <h3>House Rent Prediction</h3>
-
-                    <p>
-                        A machine learning regression application
-                        exploring rental price prediction using
-                        property-related features and data preprocessing.
-                    </p>
-
-                    <div class="tags">
-                        <span>Python</span>
-                        <span>Random Forest</span>
-                        <span>Regression</span>
-                        <span>Data Analysis</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card reveal">
-                <div class="project-top">🎓</div>
-
-                <div class="project-body">
-                    <h3>Student Performance Prediction</h3>
-
-                    <p>
-                        A classification-based machine learning
-                        application to analyse student-related data
-                        and predict academic outcomes.
-                    </p>
-
-                    <div class="tags">
-                        <span>Python</span>
-                        <span>Scikit-learn</span>
-                        <span>Classification</span>
-                        <span>Education Analytics</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-<!-- =========================
-     TECHNICAL SKILLS
-========================= -->
-
-<section class="section" id="skills"
-         style="background:var(--bg-soft)">
-
-    <div class="container">
-
-        <div class="section-heading reveal">
-            <span class="tag">Technical Expertise</span>
-            <h2>My <span class="gradient-text">Skills</span></h2>
             <p>
-                Technologies, tools and concepts relevant to teaching
-                and research.
+              As a part-time Ph.D. scholar at Anna University, I focus on machine learning applications,
+              predictive modelling, power quality analysis, and solar energy forecasting.
             </p>
+
+            <div class="insight-box">
+              <strong class="gradient-text">My academic vision</strong>
+              <p class="text-muted">To create a learning culture that blends curiosity, critical insight, technical competence, and research innovation.</p>
+            </div>
+
+            <div class="chip-list" aria-label="Academic strengths">
+              <span class="chip">Mentoring</span>
+              <span class="chip">Research</span>
+              <span class="chip">AI/ML</span>
+              <span class="chip">Software Engineering</span>
+              <span class="chip">Innovation</span>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <div class="skills-grid">
-
-            <div class="skill-group reveal">
-                <h3>Programming Languages</h3>
-                <div class="skill-tags">
-                    <span>C</span>
-                    <span>Python</span>
-                    <span>C#</span>
-                    <span>JavaScript</span>
-                </div>
-            </div>
-
-            <div class="skill-group reveal">
-                <h3>Web Technologies</h3>
-                <div class="skill-tags">
-                    <span>HTML5</span>
-                    <span>CSS3</span>
-                    <span>JavaScript</span>
-                    <span>React</span>
-                    <span>Angular</span>
-                    <span>Node.js</span>
-                    <span>Express.js</span>
-                </div>
-            </div>
-
-            <div class="skill-group reveal">
-                <h3>Machine Learning</h3>
-                <div class="skill-tags">
-                    <span>Random Forest</span>
-                    <span>RNN</span>
-                    <span>Regression</span>
-                    <span>Classification</span>
-                    <span>Scikit-learn</span>
-                    <span>Data Preprocessing</span>
-                </div>
-            </div>
-
-            <div class="skill-group reveal">
-                <h3>Database Technologies</h3>
-                <div class="skill-tags">
-                    <span>MySQL</span>
-                    <span>MongoDB</span>
-                    <span>SQL</span>
-                    <span>Mongoose</span>
-                </div>
-            </div>
-
-            <div class="skill-group reveal">
-                <h3>Research & Simulation Tools</h3>
-                <div class="skill-tags">
-                    <span>Google Colab</span>
-                    <span>Python</span>
-                    <span>MATLAB</span>
-                    <span>Simulink</span>
-                    <span>Jupyter Notebook</span>
-                </div>
-            </div>
-
-            <div class="skill-group reveal">
-                <h3>Development & Productivity</h3>
-                <div class="skill-tags">
-                    <span>Git</span>
-                    <span>GitHub</span>
-                    <span>VS Code</span>
-                    <span>Google Colab</span>
-                    <span>MS Office</span>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-<!-- =========================
-     ACADEMIC ACTIVITIES
-========================= -->
-
-<section class="section" id="activities">
-
-    <div class="container">
-
+    <section class="section" id="research" style="background: rgba(255,255,255,0.02);">
+      <div class="container">
         <div class="section-heading reveal">
-            <span class="tag">Beyond Classroom</span>
-            <h2>Academic <span class="gradient-text">Activities</span></h2>
-            <p>
-                Contributing to academic development, technical exposure
-                and student engagement.
-            </p>
+          <span class="eyebrow">Academic exploration</span>
+          <h2>Research <span class="gradient-text">interests</span></h2>
+          <p>Exploring intelligent systems and data-driven solutions for modern engineering challenges.</p>
         </div>
 
-        <div class="activities-grid">
+        <div class="research-grid" id="researchGrid"></div>
+      </div>
+    </section>
 
-            <div class="activity-card reveal">
-                <div class="activity-icon">🎤</div>
-                <h3>Workshops & Seminars</h3>
-                <p>
-                    Participation in organizing technical workshops,
-                    hands-on sessions, seminars and expert interactions.
-                </p>
-            </div>
-
-            <div class="activity-card reveal">
-                <div class="activity-icon">👨‍🎓</div>
-                <h3>Student Mentoring</h3>
-                <p>
-                    Supporting student learning, programming practice,
-                    project development and academic progression.
-                </p>
-            </div>
-
-            <div class="activity-card reveal">
-                <div class="activity-icon">🏢</div>
-                <h3>Industry Interaction</h3>
-                <p>
-                    Supporting industry-oriented training, industrial
-                    visits and industry-institute interaction activities.
-                </p>
-            </div>
-
-            <div class="activity-card reveal">
-                <div class="activity-icon">💡</div>
-                <h3>Technical Activities</h3>
-                <p>
-                    Encouraging innovation, collaborative learning,
-                    practical challenges and technical competitions.
-                </p>
-            </div>
-
-            <div class="activity-card reveal">
-                <div class="activity-icon">📚</div>
-                <h3>Academic Development</h3>
-                <p>
-                    Developing teaching materials, question banks,
-                    learning resources and practical programming exercises.
-                </p>
-            </div>
-
-            <div class="activity-card reveal">
-                <div class="activity-icon">🌱</div>
-                <h3>Student Development</h3>
-                <p>
-                    Promoting creativity, communication, teamwork,
-                    problem-solving and professional skills.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-<!-- =========================
-     CONTACT
-========================= -->
-
-<section class="section" id="contact"
-         style="background:var(--bg-soft)">
-
-    <div class="container">
-
+    <section class="section" id="education">
+      <div class="container">
         <div class="section-heading reveal">
-            <span class="tag">Let's Connect</span>
-            <h2>Get In <span class="gradient-text">Touch</span></h2>
-            <p>
-                Open to academic discussions, research collaboration,
-                technical interactions and knowledge sharing.
-            </p>
+          <span class="eyebrow">Academic background</span>
+          <h2>Education &amp; <span class="gradient-text">research</span></h2>
+          <p>Academic journey, research progression, and professional growth.</p>
         </div>
 
-        <div class="contact-wrapper">
+        <div class="timeline" id="educationTimeline"></div>
+      </div>
+    </section>
 
-            <div class="contact-info reveal">
-
-                <h3>Contact Information</h3>
-
-                <p>
-                    Feel free to connect with me for academic discussions,
-                    research opportunities and professional collaboration.
-                </p>
-
-                <div class="contact-detail">
-                    <div>✉️</div>
-                    <div>
-                        <strong>Email</strong>
-                        your-email@example.com
-                    </div>
-                </div>
-
-                <div class="contact-detail">
-                    <div>🏫</div>
-                    <div>
-                        <strong>Department</strong>
-                        Computer Science and Engineering
-                    </div>
-                </div>
-
-                <div class="contact-detail">
-                    <div>🎓</div>
-                    <div>
-                        <strong>Research University</strong>
-                        Anna University
-                    </div>
-                </div>
-
-                <div class="contact-detail">
-                    <div>📍</div>
-                    <div>
-                        <strong>Location</strong>
-                        Add your institution's location
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="contact-form reveal">
-
-                <h3>Send a Message</h3>
-
-                <form id="contactForm">
-
-                    <input type="text" id="name"
-                           placeholder="Your Name" required>
-
-                    <input type="email" id="email"
-                           placeholder="Your Email Address" required>
-
-                    <input type="text" id="subject"
-                           placeholder="Subject" required>
-
-                    <textarea id="message"
-                              placeholder="Write your message..."
-                              required></textarea>
-
-                    <button type="submit" class="btn btn-primary">
-                        Send Message →
-                    </button>
-
-                    <p class="form-note">
-                        This form opens your email application.
-                        Configure your email address in the JavaScript
-                        section before publishing.
-                    </p>
-
-                </form>
-
-            </div>
-
+    <section class="section" id="teaching" style="background: rgba(255,255,255,0.02);">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Knowledge sharing</span>
+          <h2>Teaching <span class="gradient-text">portfolio</span></h2>
+          <p>Designing student-centred learning experiences that connect theory with practice.</p>
         </div>
 
-    </div>
-</section>
+        <div class="teaching-grid" id="teachingGrid"></div>
+      </div>
+    </section>
 
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Research &amp; development</span>
+          <h2>Projects &amp; <span class="gradient-text">research work</span></h2>
+          <p>Selected applications and models spanning analytics, prediction, and intelligent systems.</p>
+        </div>
 
-<!-- =========================
-     FOOTER
-========================= -->
+        <div class="project-toolbar reveal" id="projectFilters"></div>
+        <div class="project-grid" id="projectGrid"></div>
+      </div>
+    </section>
 
-<footer>
+    <section class="section" id="testimonials" style="background: rgba(255,255,255,0.02);">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Academic impact</span>
+          <h2>Highlights &amp; <span class="gradient-text">achievements</span></h2>
+          <p>Creating meaningful learning experiences, technical engagement, and student development.</p>
+        </div>
+
+        <div class="testimonial-wrap reveal" id="testimonialWrap"></div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Let's connect</span>
+          <h2>Get in <span class="gradient-text">touch</span></h2>
+          <p>Open to academic discussions, collaborations, and constructive knowledge-sharing.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card reveal">
+            <h3>Contact information</h3>
+            <p>I welcome discussions around teaching, research opportunities, technical projects, and academic collaboration.</p>
+
+            <div class="contact-list">
+              <div class="contact-item">
+                <div class="contact-icon">✉</div>
+                <div>
+                  <strong>Email</strong>
+                  <div>your-email@example.com</div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">🏫</div>
+                <div>
+                  <strong>Department</strong>
+                  <div>Computer Science and Engineering</div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">🎓</div>
+                <div>
+                  <strong>Research</strong>
+                  <div>Anna University</div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div>
+                  <strong>Location</strong>
+                  <div>Add your institution's location</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-card reveal">
+            <h3>Send a message</h3>
+            <form id="contactForm" class="contact-form">
+              <div class="field-row">
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" placeholder="Your name" required />
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" placeholder="Your email" required />
+                </div>
+              </div>
+              <div class="field">
+                <label for="subject">Subject</label>
+                <input id="subject" name="subject" type="text" placeholder="Subject" required />
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Send message</button>
+              <div class="form-small">This form opens your default email client with the prepared message.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
     <div class="container">
-        <p>
-            © <span id="year"></span>
-            <span>G. Praveen Kumar</span>.
-            Academic Portfolio. All Rights Reserved.
-        </p>
-
-        <p style="margin-top:8px">
-            Designed with passion for Teaching, Research and Innovation.
-        </p>
+      <p>© <span id="year"></span> <span class="gradient-text">G. Praveen Kumar</span>. Academic Portfolio. All rights reserved.</p>
     </div>
-</footer>
+  </footer>
 
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
-<button id="backToTop" aria-label="Back to top">↑</button>
+  <script>
+    const portfolioData = {
+      research: [
+        { icon: "🤖", title: "Machine Learning", desc: "Developing predictive models and intelligent classification systems for real-world engineering and computing problems." },
+        { icon: "🧠", title: "Artificial Intelligence", desc: "Exploring automation, computational intelligence, and AI-driven decision support techniques." },
+        { icon: "⚡", title: "Power Quality Analysis", desc: "Studying electrical disturbances and performance anomalies using data-driven modelling and diagnostics." },
+        { icon: "☀️", title: "Solar Energy Prediction", desc: "Investigating photovoltaic performance and forecasting approaches using environmental variables." },
+        { icon: "📊", title: "Predictive Analytics", desc: "Applying statistical learning and regression strategies for better forecasting and evaluation." },
+        { icon: "🔬", title: "Simulation & Modelling", desc: "Combining computational models and experimental analysis to understand engineering systems." }
+      ],
+      education: [
+        { date: "January 2024 – Present", title: "Ph.D. – Part-Time Research Scholar", description: "Anna University · Research in AI/ML applications, predictive modelling, and interdisciplinary engineering systems.", type: "Research" },
+        { date: "Professional Experience", title: "Assistant Professor", description: "Department of Computer Science and Engineering · Teaching, mentoring, academic coordination, and research-oriented learning.", type: "Experience" },
+        { date: "Additional Information", title: "Undergraduate & Postgraduate Education", description: "Add your degree, specialization, institution, university name, and completion year here for a complete academic timeline.", type: "Academic" }
+      ],
+      teaching: [
+        { title: "💻 Programming Languages", text: "C Programming, Python, C#, logic design, functions, object-oriented programming, and problem solving fundamentals." },
+        { title: "🌐 Web Development", text: "HTML, CSS, JavaScript, React, Angular, Node.js, Express.js, and full-stack application development." },
+        { title: "🗄️ Database Management", text: "SQL concepts, MySQL, MongoDB, database connectivity, data modelling, and backend data management." },
+        { title: "🛡️ Cybersecurity", text: "Security fundamentals, vulnerabilities, ethical insights, and secure software design principles." },
+        { title: "🧪 Software Engineering", text: "Testing, requirements analysis, design methods, project planning, and quality assurance practices." },
+        { title: "🤖 Artificial Intelligence", text: "Machine learning concepts, evaluation techniques, classification, regression, and practical AI learning." }
+      ],
+      projects: [
+        { category: "AI", icon: "☀️", title: "PV Module Temperature Prediction", desc: "Researching temperature prediction using environmental and solar parameters to improve energy forecasting models.", tags: ["Machine Learning", "Solar Energy", "Regression", "Forecasting"] },
+        { category: "AI", icon: "⚡", title: "Power Quality Fault Analysis", desc: "Applying machine learning techniques for classification of voltage sag, swell, and harmonic disturbances.", tags: ["Random Forest", "RNN", "Power Quality", "Classification"] },
+        { category: "Data", icon: "🏠", title: "House Rent Prediction", desc: "Exploring rental pricing models using feature engineering and predictive analytics for property data.", tags: ["Python", "Regression", "Data Analysis", "Prediction"] },
+        { category: "Education", icon: "🎓", title: "Student Performance Prediction", desc: "A classification-oriented project for analysing student data and identifying academic outcome patterns.", tags: ["Python", "Scikit-learn", "Classification", "Education"] },
+        { category: "AI", icon: "📈", title: "Smart Forecasting Models", desc: "Comparative performance analysis of predictive algorithms for engineering and sustainability applications.", tags: ["Forecasting", "Analytics", "ML", "Evaluation"] }
+      ],
+      testimonials: [
+        { quote: "Strong mentorship and practical academic guidance build confidence in students and inspire them to learn beyond the classroom.", author: "Student Mentor Perspective" },
+        { quote: "Research-driven learning and a commitment to innovation create a meaningful academic environment for both students and faculty.", author: "Academic Collaboration" },
+        { quote: "Teaching with relevance, coding practice, and real-world context helps students connect theory to sustainable career outcomes.", author: "Learning Experience" }
+      ]
+    };
 
+    const researchGrid = document.getElementById("researchGrid");
+    const educationTimeline = document.getElementById("educationTimeline");
+    const teachingGrid = document.getElementById("teachingGrid");
+    const projectFilters = document.getElementById("projectFilters");
+    const projectGrid = document.getElementById("projectGrid");
+    const testimonialWrap = document.getElementById("testimonialWrap");
 
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
-<script>
-
-// MOBILE NAVIGATION
-
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
-
-menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
-    menuToggle.textContent =
-        navLinks.classList.contains("open") ? "✕" : "☰";
-});
-
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuToggle.textContent = "☰";
-    });
-});
-
-
-// DARK AND LIGHT MODE
-
-const themeToggle = document.getElementById("themeToggle");
-
-themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("light");
-
-    const isLight =
-        document.body.classList.contains("light");
-
-    themeToggle.textContent = isLight ? "☾" : "☀";
-
-    localStorage.setItem(
-        "portfolio-theme",
-        isLight ? "light" : "dark"
-    );
-});
-
-// Restore saved theme
-
-const savedTheme = localStorage.getItem("portfolio-theme");
-
-if (savedTheme === "light") {
-    document.body.classList.add("light");
-    themeToggle.textContent = "☾";
-}
-
-
-// SCROLL REVEAL ANIMATION
-
-const observer = new IntersectionObserver(entries => {
-
-    entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-            observer.unobserve(entry.target);
-        }
-
-    });
-
-}, {
-    threshold: 0.12
-});
-
-document.querySelectorAll(".reveal").forEach(element => {
-    observer.observe(element);
-});
-
-
-// BACK TO TOP BUTTON
-
-const backToTop = document.getElementById("backToTop");
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 450) {
-        backToTop.style.display = "block";
-    } else {
-        backToTop.style.display = "none";
+    function createResearchCards() {
+      researchGrid.innerHTML = portfolioData.research.map(item => `
+        <article class="feature-card reveal">
+          <div class="feature-icon">${item.icon}</div>
+          <h3>${item.title}</h3>
+          <p>${item.desc}</p>
+        </article>
+      `).join("");
     }
 
-});
+    function createEducationCards() {
+      educationTimeline.innerHTML = portfolioData.education.map(item => `
+        <div class="timeline-item reveal">
+          <div class="timeline-card">
+            <span class="timeline-date">${item.date}</span>
+            <h3>${item.title}</h3>
+            <p>${item.description}</p>
+          </div>
+        </div>
+      `).join("");
+    }
 
-backToTop.addEventListener("click", () => {
+    function createTeachingCards() {
+      teachingGrid.innerHTML = portfolioData.teaching.map(item => `
+        <article class="feature-card reveal">
+          <h3>${item.title}</h3>
+          <p>${item.text}</p>
+        </article>
+      `).join("");
+    }
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+    function createFilters() {
+      const filters = ["All", ...new Set(portfolioData.projects.map(p => p.category))];
+      projectFilters.innerHTML = filters.map((filter, index) => `
+        <button class="filter-btn ${index === 0 ? "active" : ""}" data-filter="${filter}">${filter}</button>
+      `).join("");
+
+      document.querySelectorAll(".filter-btn").forEach(button => {
+        button.addEventListener("click", () => {
+          const selected = button.dataset.filter;
+          document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.toggle("active", btn === button));
+          renderProjects(selected);
+        });
+      });
+    }
+
+    function renderProjects(currentFilter = "All") {
+      const filtered = currentFilter === "All"
+        ? portfolioData.projects
+        : portfolioData.projects.filter(project => project.category === currentFilter);
+
+      projectGrid.innerHTML = filtered.map(project => `
+        <article class="project-card reveal">
+          <div class="project-visual">${project.icon}</div>
+          <div class="project-body">
+            <h3>${project.title}</h3>
+            <p>${project.desc}</p>
+            <div class="tag-list">
+              ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
+            </div>
+          </div>
+        </article>
+      `).join("");
+
+      initReveal();
+    }
+
+    function createTestimonials() {
+      let current = 0;
+      testimonialWrap.innerHTML = `
+        <div class="testimonial active">${portfolioData.testimonials[0].quote}</div>
+        <div class="testimonial">${portfolioData.testimonials[1].quote}</div>
+        <div class="testimonial">${portfolioData.testimonials[2].quote}</div>
+        <div class="testimonial-footer">
+          <div class="quote-mark">“</div>
+          <div class="dots">
+            ${portfolioData.testimonials.map((item, index) => `<button class="dot-btn ${index === 0 ? "active" : ""}" data-index="${index}" aria-label="Select testimonial ${index + 1}"></button>`).join("")}
+          </div>
+          <div class="text-muted" id="testimonialAuthor">${portfolioData.testimonials[0].author}</div>
+        </div>
+      `;
+
+      const testimonialNodes = document.querySelectorAll(".testimonial");
+      const dotButtons = document.querySelectorAll(".dot-btn");
+      const authorText = document.getElementById("testimonialAuthor");
+
+      function setTestimonial(index) {
+        current = index;
+        testimonialNodes.forEach((node, idx) => node.classList.toggle("active", idx === index));
+        dotButtons.forEach((btn, idx) => btn.classList.toggle("active", idx === index));
+        authorText.textContent = portfolioData.testimonials[index].author;
+      }
+
+      dotButtons.forEach(button => {
+        button.addEventListener("click", () => setTestimonial(Number(button.dataset.index)));
+      });
+
+      setInterval(() => {
+        const next = (current + 1) % portfolioData.testimonials.length;
+        setTestimonial(next);
+      }, 3500);
+    }
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+      menuToggle.textContent = navLinks.classList.contains("open") ? "✕" : "☰";
     });
 
-});
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.textContent = "☰";
+      });
+    });
 
+    const themeToggle = document.getElementById("themeToggle");
+    const savedTheme = localStorage.getItem("portfolio-theme");
 
-// DYNAMIC COPYRIGHT YEAR
+    function applyTheme(theme) {
+      const isLight = theme === "light";
+      document.body.classList.toggle("light", isLight);
+      themeToggle.textContent = isLight ? "☾" : "☀";
+      localStorage.setItem("portfolio-theme", isLight ? "light" : "dark");
+    }
 
-document.getElementById("year").textContent =
-    new Date().getFullYear();
+    if (savedTheme) {
+      applyTheme(savedTheme);
+    }
 
+    themeToggle.addEventListener("click", () => {
+      const next = document.body.classList.contains("light") ? "dark" : "light";
+      applyTheme(next);
+    });
 
-// ACTIVE NAVIGATION LINK
+    function initReveal() {
+      const revealNodes = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.13 });
 
-const sections = document.querySelectorAll("section[id]");
-const navItems = document.querySelectorAll(".nav-links a");
+      revealNodes.forEach(node => observer.observe(node));
+    }
 
-window.addEventListener("scroll", () => {
+    const typedTextElement = document.getElementById("typedText");
+    const words = ["Assistant Professor", "Research Scholar", "Tech Mentor", "AI & ML Enthusiast"];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
 
-    let current = "";
+    function typeWord() {
+      const currentWord = words[wordIndex];
+      if (!deleting) {
+        charIndex++;
+        typedTextElement.textContent = currentWord.slice(0, charIndex);
 
-    sections.forEach(section => {
-
-        const sectionTop = section.offsetTop - 120;
-
-        if (window.scrollY >= sectionTop) {
-            current = section.getAttribute("id");
+        if (charIndex === currentWord.length) {
+          deleting = true;
+          setTimeout(typeWord, 1200);
+          return;
         }
+      } else {
+        charIndex--;
+        typedTextElement.textContent = currentWord.slice(0, charIndex);
 
-    });
-
-    navItems.forEach(link => {
-
-        link.classList.remove("active");
-
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
+        if (charIndex === 0) {
+          deleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
         }
+      }
 
+      setTimeout(typeWord, deleting ? 60 : 115);
+    }
+
+    function animateCounters() {
+      const counters = document.querySelectorAll("[data-target]");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+
+          const target = Number(entry.target.dataset.target);
+          let current = 0;
+          const step = Math.max(1, Math.ceil(target / 60));
+
+          const updateCounter = () => {
+            current += step;
+            if (current >= target) {
+              entry.target.textContent = target + (target === 120 ? "+" : "+");
+              observer.unobserve(entry.target);
+              return;
+            }
+            entry.target.textContent = current + "+";
+            requestAnimationFrame(updateCounter);
+          };
+
+          updateCounter();
+        });
+      }, { threshold: 0.4 });
+
+      counters.forEach(counter => observer.observe(counter));
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      backToTop.style.display = window.scrollY > 450 ? "block" : "none";
     });
 
-});
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 
+    const navItems = document.querySelectorAll(".nav-links a");
+    const sections = document.querySelectorAll("section[id]");
 
-// CONTACT FORM
+    window.addEventListener("scroll", () => {
+      let currentId = "home";
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        if (window.scrollY >= top) {
+          currentId = section.getAttribute("id");
+        }
+      });
 
-document.getElementById("contactForm")
-.addEventListener("submit", function(event) {
+      navItems.forEach(link => {
+        const active = link.getAttribute("href") === `#${currentId}`;
+        link.classList.toggle("active", active);
+      });
+    });
 
-    event.preventDefault();
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
 
-    // CHANGE THIS TO YOUR ACTUAL EMAIL ADDRESS
-    const receiverEmail = "your-email@example.com";
+      const mailtoLink = `mailto:your-email@example.com?subject=${encodeURIComponent(subject || "New Contact Message")}&body=${encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+      )}`;
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const subject = document.getElementById("subject").value;
-    const message = document.getElementById("message").value;
+      window.location.href = mailtoLink;
+      this.reset();
+    });
 
-    const mailSubject = encodeURIComponent(subject);
-
-    const mailBody = encodeURIComponent(
-        "Name: " + name +
-        "\nEmail: " + email +
-        "\n\nMessage:\n" + message
-    );
-
-    window.location.href =
-        "mailto:" + receiverEmail +
-        "?subject=" + mailSubject +
-        "&body=" + mailBody;
-
-});
-
-</script>
-
+    createResearchCards();
+    createEducationCards();
+    createTeachingCards();
+    createFilters();
+    renderProjects();
+    createTestimonials();
+    animateCounters();
+    typeWord();
+    initReveal();
+  </script>
 </body>
 </html>
